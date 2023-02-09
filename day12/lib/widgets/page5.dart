@@ -11,6 +11,7 @@ class Page5 extends StatelessWidget {
       backgroundColor: Colors.blueGrey[100],
       appBar: AppBar(
         title: const Text('Page5'),
+        backgroundColor: Colors.blue[200],
       ),
       body: Center(
         child: Column(

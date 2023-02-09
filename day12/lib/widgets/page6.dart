@@ -8,6 +8,7 @@ class Page6 extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.blueGrey[100],
       appBar: AppBar(
+        backgroundColor: Colors.blue[200],
         title: const Text('Page6'),
       ),
       body: Center(

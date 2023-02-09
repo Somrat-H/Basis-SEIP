@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:day12/widgets/page2.dart';
 import 'package:flutter/material.dart';
-// ignore: must_be_immutable
+
 class Page1 extends StatelessWidget {
    Page1({super.key,});
 
@@ -28,7 +28,7 @@ class Page1 extends StatelessWidget {
             onPressed: (){
               Navigator.of(context).push(MaterialPageRoute(builder: (context)=> Page2(animalName: animalName,)));
             }, child: const Text('Go page 2'),),
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             MaterialButton(
             color: Colors.blue[100],
             onPressed: (){

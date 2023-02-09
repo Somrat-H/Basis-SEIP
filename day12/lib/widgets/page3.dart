@@ -9,6 +9,7 @@ class Page3 extends StatelessWidget {
     return  Scaffold(
       backgroundColor: Colors.blueGrey[100],
       appBar: AppBar(
+        backgroundColor: Colors.blue[200],
         title: const Text('Page3'),
       ),
       body: Center(
@@ -16,7 +17,7 @@ class Page3 extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(animalName![2]),
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
           MaterialButton(
             color: Colors.blue[100],
             onPressed: (){

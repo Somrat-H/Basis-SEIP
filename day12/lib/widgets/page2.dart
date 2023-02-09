@@ -10,6 +10,7 @@ class Page2 extends StatelessWidget {
     return  Scaffold(
       backgroundColor: Colors.blueGrey[100],
       appBar: AppBar(
+        backgroundColor: Colors.blue[200],
         title: const Text('Page2'),
       ),
         body: Center(

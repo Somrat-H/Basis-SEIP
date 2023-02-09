@@ -10,6 +10,7 @@ class Page4 extends StatelessWidget {
       backgroundColor: Colors.blueGrey[100],
       appBar: AppBar(
         title: const Text('Page4'),
+        backgroundColor: Colors.blue[200],
       ),
       body: Center(
         child: Column(

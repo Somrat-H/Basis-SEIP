@@ -9,8 +9,8 @@ class Page7 extends StatelessWidget {
     return  Scaffold(
       backgroundColor: Colors.blueGrey[100],
       appBar: AppBar(
-        // ignore: prefer_const_constructors
-        title: Text('Page7'),
+       backgroundColor: Colors.blue[200],
+        title: const Text('Page7'),
       ),
        body: Center(
         child: Column(
