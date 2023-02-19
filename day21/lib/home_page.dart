@@ -28,9 +28,9 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        actions: [
+        actions: const[
           Padding(
-            padding: const EdgeInsets.only(right: 10),
+            padding:  EdgeInsets.only(right: 10),
             child: Icon(Icons.menu, color: Colors.black,),
           ),
         ],
@@ -44,7 +44,7 @@ class _HomePageState extends State<HomePage> {
           onPressed: (){
            
           },
-         child: Icon(Icons.arrow_forward, color: Colors.white, size: 30,),
+         child: const Icon(Icons.arrow_forward, color: Colors.white, size: 30,),
         ),
       ),
  
@@ -58,10 +58,10 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Travel Blog', style: TextStyle(
+            const Text('Travel Blog', style: TextStyle(
               fontSize: 25,
             ),),
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             Expanded(
               flex: 3,
               child: PageView.builder(
@@ -75,11 +75,11 @@ class _HomePageState extends State<HomePage> {
                   travelName: myList[i].travelName,
                 );
               })),
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('Most Popular', style: TextStyle(
+                const Text('Most Popular', style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.w700,
             ),),
@@ -90,11 +90,11 @@ class _HomePageState extends State<HomePage> {
       
               ],
             ),
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
               Expanded(
               flex: 2,
               child: ListView.separated(
-                separatorBuilder: (context, index) => SizedBox(width: 20,),
+                separatorBuilder: (context, index) => const SizedBox(width: 20,),
                 itemCount: myList.length,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, i){

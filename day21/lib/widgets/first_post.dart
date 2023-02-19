@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class FirstPost extends StatelessWidget {
   String ?image;
   String ?placeName;
@@ -17,7 +18,7 @@ class FirstPost extends StatelessWidget {
           Positioned(
             top: 250,
             left: 10,
-            child: Text(placeName!, style: TextStyle(
+            child: Text(placeName!, style: const TextStyle(
             color: Colors.white,
             fontSize: 20,
           ),)),
@@ -25,7 +26,7 @@ class FirstPost extends StatelessWidget {
           top: 220,
           left: 10,
           child:  Text(
-            travelName!, style: TextStyle(
+            travelName!, style: const TextStyle(
               fontSize: 30,
               color: Colors.white,
               fontWeight: FontWeight.bold,

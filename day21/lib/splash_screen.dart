@@ -15,8 +15,8 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   void initState() {
-    Timer(Duration(seconds: 3), () { 
-      Navigator.push(context, MaterialPageRoute(builder: (context)=> HomePage()));
+    Timer(const Duration(seconds: 3), () { 
+      Navigator.push(context, MaterialPageRoute(builder: (context)=> const HomePage()));
     });
     super.initState();
   }
@@ -35,10 +35,10 @@ class _SplashScreenState extends State<SplashScreen> {
               fontSize: 40
             ),),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
-          CircularProgressIndicator(),
+          const CircularProgressIndicator(),
 
         ],
       ),
