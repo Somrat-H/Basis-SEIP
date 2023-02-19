@@ -1,8 +1,7 @@
-import 'package:day21/screen/popular_page.dart';
-import 'package:day21/screen/recent_page.dart';
-import 'package:day21/screen/tranding_page.dart';
+import 'package:day21/model/travel_model.dart';
+import 'package:day21/widgets/first_post.dart';
+import 'package:day21/widgets/second_post.dart';
 import 'package:flutter/material.dart';
-
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -11,124 +10,105 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  PageController ? _pageController;
-  int currentIndex = 0;
 
+  PageController ?_pageController;
+  int currentIndex = 0;
+  
   @override
   void initState() {
-
     _pageController = PageController(
       initialPage: currentIndex,
     );
-    // TODO: implement initState
     super.initState();
   }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-     appBar: AppBar(
-      elevation: 0,
-      backgroundColor: Colors.white,
-      leading: const Icon(Icons.arrow_back_ios_rounded, color: Colors.black,),
-      title: const Text('Education', style: TextStyle(
-        fontSize: 20,
-        fontWeight: FontWeight.w700,
-        color: Colors.black
-      ),),
-      actions: const[
-        Icon(Icons.search_sharp,color: Colors.black,),
-      ],
-     ),
-
-    body: Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Container(
-            height: 70,
-            decoration: BoxDecoration(
-              color: Colors.grey.shade300,
-              borderRadius: BorderRadius.circular(40)
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  InkWell(
-                        onTap: (){
-                          setState(() {
-                            currentIndex = 0;
-                            _pageController!.jumpToPage(0);
-                          });
-                        },
-                        child: Container(
-                          width: 120,
-                          height: 60,
-                          decoration: BoxDecoration(
-                             color: currentIndex == 0? Colors.white : Colors.grey.shade300,
-                            borderRadius: BorderRadius.circular(40)),
-                            child: const Center(child: Text('Tranding', style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600
-                            ),)),
-                        ),
-                      ),
-                      
-                  InkWell(
-                        onTap: (){
-                          setState(() {
-                            currentIndex = 1;
-                            _pageController!.jumpToPage(1);
-                          });
-                        },
-                        child: Container(
-                          width: 120,
-                          height: 60,
-                          decoration: BoxDecoration(
-                             color: currentIndex == 1 ? Colors.white : Colors.grey.shade300,
-                            borderRadius: BorderRadius.circular(40)),
-                            child: const Center(child: Text('Recent', style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600
-                            ),)),
-                        ),
-                      ),
-                   InkWell(
-                        onTap: (){
-                          setState(() {
-                            currentIndex = 2;
-                            _pageController!.jumpToPage(2);
-                          });
-                        },
-                        child: Container(
-                          width: 120,
-                          height: 60,
-                          decoration: BoxDecoration(
-                             color: currentIndex == 2? Colors.white : Colors.grey.shade300,
-                            borderRadius: BorderRadius.circular(40)),
-                            child: const Center(child: Text('Tranding', style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600
-                            ),)),
-                        ),
-                      ),
-                ],
-              ),
-            ),
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: Colors.white,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 10),
+            child: Icon(Icons.menu, color: Colors.black,),
           ),
-        ), 
-        Expanded(child: PageView(
-          controller: _pageController,
+        ],
+      ),
+      floatingActionButton: Align(
+        alignment: Alignment.centerRight,
+        child: FloatingActionButton(
+      
+      
+          backgroundColor: Colors.orange,
+          onPressed: (){
+           
+          },
+         child: Icon(Icons.arrow_forward, color: Colors.white, size: 30,),
+        ),
+      ),
+ 
+       body: Padding(
+        padding: const EdgeInsets.only(
+          left: 10,
+          bottom: 10,
+          right: 10,
+
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const TrandingPage(),
-            const RecentPage(),
-            const PopularScreen(),
+            Text('Travel Blog', style: TextStyle(
+              fontSize: 25,
+            ),),
+            SizedBox(height: 10,),
+            Expanded(
+              flex: 3,
+              child: PageView.builder(
+                controller: _pageController,
+                scrollDirection: Axis.horizontal,
+                itemCount: myList.length,
+                itemBuilder: (context, i){
+                return FirstPost(
+                  image: myList[i].image,
+                  placeName: myList[i].placeName,
+                  travelName: myList[i].travelName,
+                );
+              })),
+            SizedBox(height: 10,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text('Most Popular', style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w700,
+            ),),
+            Text('View all', style: TextStyle(
+              fontSize: 18,
+              color: Colors.orange.shade500
+            ),),
+      
+              ],
+            ),
+            SizedBox(height: 10,),
+              Expanded(
+              flex: 2,
+              child: ListView.separated(
+                separatorBuilder: (context, index) => SizedBox(width: 20,),
+                itemCount: myList.length,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (context, i){
+                return SecondPost(
+                  image: myList[i].image,
+                  placeName: myList[i].placeName,
+                  travelName: myList[i].travelName,
+                );
+              })
+             ),
+               
           ],
-        ))
-      ],
-    ),
+        ),
+      ),
     );
   }
 }
