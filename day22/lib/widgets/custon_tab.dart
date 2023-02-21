@@ -25,7 +25,7 @@ class _CustomTabState extends State<CustomTab> {
          shrinkWrap: true,
           scrollDirection: Axis.horizontal,
           itemCount: myList.length,
-          separatorBuilder: (context, index)=> SizedBox(width: 25,),
+          separatorBuilder: (context, index)=> const SizedBox(width: 25,),
           itemBuilder: (context, index){
           return InkWell(
             onTap: (){

@@ -16,7 +16,7 @@ class CustomBottom extends StatelessWidget {
               width: 250,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
-                color: Color.fromARGB(255, 10, 106, 76)
+                color: const Color.fromARGB(255, 10, 106, 76)
               ),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -27,30 +27,30 @@ class CustomBottom extends StatelessWidget {
                         CircleAvatar(
                           child: Image.asset('images/google_logo.png'),
                         ),
-                        Text('Google LLC'),
-                        SizedBox(width:90,),
-                        Icon(Icons.bookmark_border),
+                        const Text('Google LLC'),
+                        const SizedBox(width:90,),
+                        const Icon(Icons.bookmark_border),
                   
                       ],
                     ),
-                    Center(child: Text('Product Design'),),
+                    const Center(child: Text('Product Design'),),
                     Row(
-                      children: [
+                      children:const [
                         Icon(Icons.location_on_sharp),
-                        Text('417 Marian Plaza, Texax, USA'),
+                         Text('417 Marian Plaza, Texax, USA'),
                       ],
                     )
                   ],
                 ),
               ),
             ),
-            SizedBox(width: 20,),
+            const SizedBox(width: 20,),
             Container(
               height: 100,
               width: 250,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
-                color: Color.fromARGB(255, 10, 106, 76)
+                color: const Color.fromARGB(255, 10, 106, 76)
               ),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -61,16 +61,16 @@ class CustomBottom extends StatelessWidget {
                         CircleAvatar(
                           child: Image.asset('images/google_logo.png'),
                         ),
-                        Text('Google LLC'),
-                         SizedBox(width:90,),
-                        Icon(Icons.bookmark_border),
+                        const Text('Google LLC'),
+                         const SizedBox(width:90,),
+                        const Icon(Icons.bookmark_border),
                   
                       ],
                     ),
-                    Center(child: Text('Product Design'),),
+                    const Center(child: Text('Product Design'),),
                     Row(
-                      children: [
-                        Icon(Icons.location_on_sharp),
+                      children: const[
+                         Icon(Icons.location_on_sharp),
                        
                         Text('417 Marian Plaza, Texax, USA'),
                       ],
@@ -79,13 +79,13 @@ class CustomBottom extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(width: 20,),
+            const SizedBox(width: 20,),
             Container(
               height: 100,
               width: 250,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
-                color: Color.fromARGB(255, 10, 106, 76)
+                color: const Color.fromARGB(255, 10, 106, 76)
               ),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -96,30 +96,30 @@ class CustomBottom extends StatelessWidget {
                         CircleAvatar(
                           child: Image.asset('images/google_logo.png'),
                         ),
-                        Text('Google LLC'),
-                        SizedBox(width:90,),
-                        Icon(Icons.bookmark_border),
+                        const Text('Google LLC'),
+                        const SizedBox(width:90,),
+                        const Icon(Icons.bookmark_border),
                   
                       ],
                     ),
-                    Center(child: Text('Product Design'),),
+                    const Center(child: Text('Product Design'),),
                     Row(
-                      children: [
-                        Icon(Icons.location_on_sharp),
-                        Text('417 Marian Plaza, Texax, USA'),
+                      children:const [
+                         Icon(Icons.location_on_sharp),
+                         Text('417 Marian Plaza, Texax, USA'),
                       ],
                     )
                   ],
                 ),
               ),
             ),
-            SizedBox(width: 20,),
+            const SizedBox(width: 20,),
             Container(
               height: 100,
               width: 250,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
-                color: Color.fromARGB(255, 10, 106, 76)
+                color: const Color.fromARGB(255, 10, 106, 76)
               ),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -130,15 +130,15 @@ class CustomBottom extends StatelessWidget {
                         CircleAvatar(
                           child: Image.asset('images/google_logo.png'),
                         ),
-                        Text('Google LLC'),
-                         SizedBox(width:90,),
-                        Icon(Icons.bookmark_border),
+                        const Text('Google LLC'),
+                         const SizedBox(width:90,),
+                        const Icon(Icons.bookmark_border),
                   
                       ],
                     ),
-                    Center(child: Text('Product Design'),),
+                    const Center(child: Text('Product Design'),),
                     Row(
-                      children: [
+                      children: const[
                         Icon(Icons.location_on_sharp),
                         Text('417 Marian Plaza, Texax, USA'),
                       ],
@@ -147,7 +147,7 @@ class CustomBottom extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(width: 20,),
+            const SizedBox(width: 20,),
           ],
         ),
       ),

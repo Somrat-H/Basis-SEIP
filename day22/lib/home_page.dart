@@ -34,7 +34,7 @@ class _HomePageState extends State<HomePage> {
             ),
             Positioned(
               child: Column(
-                children:  [
+                children: const [
                   CustomAppBar(),
                   CustomBody(),
                   CustomTab(),
