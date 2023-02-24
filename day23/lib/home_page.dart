@@ -35,10 +35,10 @@ class _HomePageState extends State<HomePage> {
             Positioned(
               child: Column(
                 children:  [
-                  CustomAppBar(),
-                  CustomBody(),
-                  CustomTab(),
-                  SizedBox(height: 20,),
+                  const CustomAppBar(),
+                  const CustomBody(),
+                  const CustomTab(),
+                  const SizedBox(height: 20,),
                   Padding(
                     padding: const EdgeInsets.only(
                       left: 5,

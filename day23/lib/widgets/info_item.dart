@@ -1,9 +1,17 @@
 import 'package:day22/widgets/company_model.dart';
+import 'package:day22/widgets/custom_bottom_sheet.dart';
 import 'package:flutter/material.dart';
-class InfoItem extends StatelessWidget {
+// ignore: must_be_immutable
+class InfoItem extends StatefulWidget {
   ComapnyModel ?info;
    InfoItem({super.key, this.info});
 
+  @override
+  State<InfoItem> createState() => _InfoItemState();
+}
+
+class _InfoItemState extends State<InfoItem> {
+  ComapnyModel ?tai;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -30,26 +38,26 @@ class InfoItem extends StatelessWidget {
                     borderRadius: BorderRadius.circular(50),
                     color: Colors.white,
                   ),
-                  child: Image.asset("${info!.imageUrl}"),
-             
+                  child: Image.asset("${widget.info!.imageUrl}"),
+                  
                 ),
-                Text("${info!.comapanyName}"),
+                Text("${widget.info!.comapanyName}"),
                 ],
                ),
              ),
-             SizedBox(width: 100,),
-              Icon(Icons.bookmark_outline_outlined),
+             const SizedBox(width: 100,),
+              const Icon(Icons.bookmark_outline_outlined),
             ],
             
           ),
          
-    Text('${info!.title}', style: TextStyle(
+    Text('${widget.info!.title}', style: const TextStyle(
       fontSize: 22,
     ),),
     Row(
       children: [
-        Icon(Icons.location_on_outlined),
-        Text('${info!.address}', style: TextStyle(
+        const Icon(Icons.location_on_outlined),
+        Text('${widget.info!.address}', style: const TextStyle(
           fontSize: 14
         ),),
       ],
@@ -58,6 +66,4 @@ class InfoItem extends StatelessWidget {
       ),
     );
   }
-  
-  
 }
