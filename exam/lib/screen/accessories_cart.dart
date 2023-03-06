@@ -1,20 +1,20 @@
-import 'package:exam/model/product_model.dart';
+import 'package:exam/model/accessories_model.dart';
 import 'package:flutter/material.dart';
 // ignore: must_be_immutable
-class CartPage extends StatefulWidget {
+class AccessoriesCart extends StatefulWidget {
   int index;
   int total;
-   CartPage({super.key, required this.index, required this.total});
+   AccessoriesCart({super.key, required this.index, required this.total});
 
   @override
-  State<CartPage> createState() => _CartPageState();
+  State<AccessoriesCart> createState() => _AccessoriesCartState();
 }
 
-class _CartPageState extends State<CartPage> {
+class _AccessoriesCartState extends State<AccessoriesCart> {
   
 
   getTotal(){
-    widget.total = (productList[widget.index].price!.toInt() * productList[widget.index].quantity);
+    widget.total = (accessoerisList[widget.index].price!.toInt() * accessoerisList[widget.index].quantity);
   }
 
   @override
@@ -58,7 +58,10 @@ class _CartPageState extends State<CartPage> {
                                      ),
                    ),
                   const SizedBox(width: 120,),
-                  const Text('Order Details'),
+                  const Text('Order Details', style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 20
+                  ),),
                  
                 ],
               ),
@@ -87,7 +90,7 @@ class _CartPageState extends State<CartPage> {
                           offset: Offset(1, -1)
                         )
                       ],
-                      image: DecorationImage(image: NetworkImage('${productList[widget.index].image}'),)
+                      image: DecorationImage(image: NetworkImage('${accessoerisList[widget.index].image}'),)
                     ),
                   ),
                   Padding(
@@ -95,12 +98,12 @@ class _CartPageState extends State<CartPage> {
                     child: Column(
                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('${productList[widget.index].name}', style: TextStyle(
+                        Text('${accessoerisList[widget.index].name}', style: TextStyle(
                           fontWeight: FontWeight.w700
                         ),),
                         Align(
                           alignment: Alignment.topLeft,
-                          child: Text('${productList[widget.index].productCatagory}', style: TextStyle(
+                          child: Text('${accessoerisList[widget.index].productCatagory}', style: TextStyle(
                           fontWeight: FontWeight.w700
                         ),)),
                        
@@ -108,7 +111,7 @@ class _CartPageState extends State<CartPage> {
                        const SizedBox(
                         height: 8,
                        ),
-                       Text('\$${productList[widget.index].price}(\$4.00 Tax)', style: TextStyle(
+                       Text('\$${accessoerisList[widget.index].price}(\$4.00 Tax)', style: TextStyle(
                           color: Colors.grey.shade500
                         ),),
                         const SizedBox(
@@ -119,8 +122,8 @@ class _CartPageState extends State<CartPage> {
                             InkWell(
                               onTap: (){
                                setState(() {
-                                if(productList[widget.index].quantity > 0)
-                                 productList[widget.index].quantity--;
+                                if(accessoerisList[widget.index].quantity > 0)
+                                 accessoerisList[widget.index].quantity--;
                                  getTotal();
                                  
                                });
@@ -137,7 +140,7 @@ class _CartPageState extends State<CartPage> {
                               ),
                             ),
                          SizedBox(width: MediaQuery.of(context).size.width * 0.02,),
-                            Text('${productList[widget.index].quantity}', style: const TextStyle(
+                            Text('${accessoerisList[widget.index].quantity}', style: const TextStyle(
                               color: Colors.grey
                             ),),
                             SizedBox(width: MediaQuery.of(context).size.width * 0.02,),
@@ -145,7 +148,7 @@ class _CartPageState extends State<CartPage> {
                                 onTap: (){
                                    setState(() {
                               
-                                 productList[widget.index].quantity++;
+                                 accessoerisList[widget.index].quantity++;
                                  getTotal();
                                });
                                 },
@@ -201,11 +204,11 @@ class _CartPageState extends State<CartPage> {
 
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: const[
+                              children: [
                                 const Text('SubTotal', style: TextStyle(
                                   color: Colors.grey,
                                 ),),
-                                 const Text('\$199.0', style: TextStyle(
+                                 Text('\$${accessoerisList[widget.index].price}', style: TextStyle(
                                   color: Colors.grey,
                                 ),),
                               ],

@@ -1,9 +1,13 @@
+import 'package:exam/model/accessories_model.dart';
 import 'package:exam/model/product_model.dart';
+import 'package:exam/screen/accessories_cart.dart';
 import 'package:exam/screen/cart_page.dart';
 import 'package:flutter/material.dart';
 
 class ProductPage extends StatelessWidget {
-  const ProductPage({super.key});
+ ProductPage({super.key});
+
+  
 
   @override
   Widget build(BuildContext context) {
@@ -65,17 +69,20 @@ class ProductPage extends StatelessWidget {
                 const Align(
                   alignment: Alignment.topLeft,
                   child: Text(
-                    'Hi-Fi Shop & Service\n',
+                    'Hi-Fi Shop & Service',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 22,
                     ),
                   ),
                 ),
+                SizedBox(
+                  height: 8,
+                ),
                 Align(
                   alignment: Alignment.topLeft,
                   child: Text(
-                    'Audio shop on Rustaveli Ave 57.\n\nThis shop offers both products and services',
+                    'Audio shop on Rustaveli Ave 57.\nThis shop offers both products and services',
                     style: TextStyle(
                       fontSize: 12,
                       color: Colors.grey.shade500,
@@ -84,6 +91,7 @@ class ProductPage extends StatelessWidget {
                 ),
               ],
             ),
+            SizedBox(height: 15,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -91,11 +99,18 @@ class ProductPage extends StatelessWidget {
                   children: [
                     Text(
                       'Products',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600
+                      ),
                     ),
+                    SizedBox(width: 5,),
                     Text('${productList.length}'),
                   ],
                 ),
-                Text('Show All'),
+                Text('Show All',  style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        color: Color.fromARGB(255, 13, 80, 206)
+                      ),),
               ],
             ),
             Expanded(
@@ -106,8 +121,10 @@ class ProductPage extends StatelessWidget {
                       return InkWell(
                         onTap: (){
                           Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                            return CartPage(index: index);
+                            return CartPage(index: index, total: productList[index].price!.toInt(),);
+                            
                           }));
+                          
                         },
                         child: Container(
                           decoration: BoxDecoration(),
@@ -180,12 +197,21 @@ class ProductPage extends StatelessWidget {
                 Row(
                   children: [
                     Text(
-                      'Products',
+                      'Accessories',  style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                       
+                      ),
+                    ),
+                    SizedBox(
+                      width: 6,
                     ),
                     Text('${productList.length}'),
                   ],
                 ),
-                Text('Show All'),
+                Text('Show all',  style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        color: Color.fromARGB(255, 13, 80, 206)
+                      ),),
               ],
             ),
             Expanded(
@@ -193,50 +219,99 @@ class ProductPage extends StatelessWidget {
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
                     itemBuilder: (context, index) {
-                      return Container(
-                        decoration: BoxDecoration(),
-                        width: 200,
-                        child: Padding(
-                          padding: const EdgeInsets.all(1.0),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Container(
-                                  height:
-                                      MediaQuery.of(context).size.height * 0.2,
-                                  width: 200,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
-                                      image: DecorationImage(
-                                        fit: BoxFit.fill,
-                                        image: NetworkImage(
-                                          '${productList[index].image}',
-                                        ),
-                                      )),
-                                ),
-                              ),
-                              Align(
-                                alignment: Alignment.topLeft,
-                                child: Text(
-                                  '${productList[index].name}',
-                                  style: const TextStyle(
-                                    fontWeight: FontWeight.w700,
+                      return InkWell(
+                        onTap: (){
+                           Navigator.of(context).push(MaterialPageRoute(builder: (context){
+                            return AccessoriesCart(index: index, total: accessoerisList[index].price!.toInt(),);
+                            
+                          }));
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(),
+                          width: 200,
+                          child: Padding(
+                            padding: const EdgeInsets.all(1.0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Container(
+                                    height:
+                                        MediaQuery.of(context).size.height * 0.2,
+                                    width: 200,
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10),
+                                        image: DecorationImage(
+                                          fit: BoxFit.fill,
+                                          image: NetworkImage(
+                                            '${accessoerisList[index].image}',
+                                          ),
+                                        )),
                                   ),
                                 ),
-                              ),
-                              const SizedBox(
-                                height: 5,
-                              ),
-                              Align(
+                                Align(
                                   alignment: Alignment.topLeft,
                                   child: Text(
-                                    '\$${productList[index].price}',
+                                    '${accessoerisList[index].name}',
                                     style: const TextStyle(
-                                        fontWeight: FontWeight.w700),
-                                  )),
-                            ],
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 5,
+                                ),
+                                Align(
+                                  alignment: Alignment.topLeft,
+                                  child: accessoerisList[index].isAvilable == false ? Row(
+                                    children: [
+                                      Container(
+                                        height: 8,
+                                        width: 8,
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: Colors.red,
+                                        ),
+                                      ), 
+                                      SizedBox(
+                                        width: 5,
+                                      ),
+                                      Text('Unavailable', style: TextStyle(
+                                        color: Colors.red,
+                                      ),)
+                                    ],
+                                  ): Row(
+                                    children: [
+                                      Container(
+                                        height: 8,
+                                        width: 8,
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: Colors.green,
+                                        ),
+                                      ), 
+                                       SizedBox(
+                                        width: 5,
+                                      ),
+                                      Text('Available', style: TextStyle(
+                                        color: Colors.green,
+                                      ),)
+                                    ],
+                                  )
+                                ),
+                                 SizedBox(
+                                        height: 5,
+                                      ),
+                                Align(
+                                    alignment: Alignment.topLeft,
+                                    child: Text(
+                                      '\$${accessoerisList[index].price}',
+                                      style: const TextStyle(
+                                          fontWeight: FontWeight.w700),
+                                    )),
+                              ],
+                            ),
                           ),
                         ),
                       );
@@ -244,7 +319,7 @@ class ProductPage extends StatelessWidget {
                     separatorBuilder: (context, int) {
                       return const SizedBox(width: 10);
                     },
-                    itemCount: productList.length)),
+                    itemCount: accessoerisList.length)),
           ],
         ),
       )),
